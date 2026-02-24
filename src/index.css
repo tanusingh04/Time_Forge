@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+    --background: 45 30% 94%;
+    --foreground: 80 20% 20%;
+
+    --card: 45 32% 92%;
+    --card-foreground: 80 20% 20%;
+
+    --popover: 60 56% 91%;
+    --popover-foreground: 80 20% 20%;
+
+    --primary: 80 24% 48%;
+    --primary-foreground: 60 56% 96%;
+
+    --secondary: 60 40% 84%;
+    --secondary-foreground: 80 20% 22%;
+
+    --muted: 60 30% 86%;
+    --muted-foreground: 80 10% 42%;
+
+    --accent: 80 30% 42%;
+    --accent-foreground: 60 56% 96%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 60 20% 80%;
+    --input: 60 20% 80%;
+    --ring: 80 24% 48%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 80 20% 22%;
+    --sidebar-foreground: 60 40% 90%;
+    --sidebar-primary: 80 24% 55%;
+    --sidebar-primary-foreground: 60 56% 96%;
+    --sidebar-accent: 80 15% 28%;
+    --sidebar-accent-foreground: 60 40% 90%;
+    --sidebar-border: 80 12% 30%;
+    --sidebar-ring: 80 24% 48%;
+
+    /* Custom tokens */
+    --beige-gradient: linear-gradient(135deg, hsl(45 35% 92%), hsl(42 38% 89%), hsl(48 32% 90%));
+    --sage-solid: 80 24% 48%;
+    --purple-soft: 60 40% 93%;
+    --beige-warm: 45 35% 90%;
+    --purple-deep: 80 20% 22%;
+    --glow-purple: 0 8px 32px -8px hsl(80 24% 48% / 0.3);
+    --glow-beige: 0 8px 32px -8px hsl(45 35% 65% / 0.3);
+  }
+
+  .dark {
+    --background: 80 20% 10%;
+    --foreground: 60 40% 95%;
+    --card: 80 18% 16%;
+    --card-foreground: 60 40% 95%;
+    --popover: 80 18% 16%;
+    --popover-foreground: 60 40% 95%;
+    --primary: 80 24% 55%;
+    --primary-foreground: 80 20% 10%;
+    --secondary: 80 15% 22%;
+    --secondary-foreground: 60 40% 95%;
+    --muted: 80 12% 22%;
+    --muted-foreground: 60 30% 75%;
+    --accent: 80 30% 45%;
+    --accent-foreground: 60 56% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 80 12% 24%;
+    --input: 80 12% 24%;
+    --ring: 80 24% 55%;
+    --sidebar-background: 80 20% 8%;
+    --sidebar-foreground: 60 40% 90%;
+    --sidebar-primary: 80 24% 55%;
+    --sidebar-primary-foreground: 60 56% 96%;
+    --sidebar-accent: 80 15% 14%;
+    --sidebar-accent-foreground: 60 40% 90%;
+    --sidebar-border: 80 12% 16%;
+    --sidebar-ring: 80 24% 55%;
+    
+    /* Dark mode custom tokens */
+    --beige-warm: 45 25% 25%;
+    --purple-soft: 60 20% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .bg-beige-gradient {
+    background: var(--beige-gradient);
+  }
+  .bg-sage-solid {
+    background-color: hsl(var(--sage-solid));
+  }
+  .shadow-glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+  .shadow-glow-beige {
+    box-shadow: var(--glow-beige);
+  }
+}
