@@ -1,73 +1,124 @@
-# Welcome to your Lovable project
+# ⏳ TimeForge – Smart Timetable Generator
 
-## Project info
+> Craft, customize, and conquer your schedule with precision ⚡  
+> A modern, intuitive timetable creation web app built for productivity lovers.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
+<p align="center">
+  <img src="https://img.shields.io/badge/React-Vite-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TailwindCSS-Styled-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+  <img src="https://img.shields.io/badge/FramerMotion-Animated-black?style=for-the-badge&logo=framer&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
+</p>
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+<p align="center">
+  <b>A modern smart timetable generator with dynamic scheduling, smooth animations, and a sleek productivity-focused UI ⏳⚡</b>
+</p>
 
-**Use Lovable**
+##  Live Demo
+🎥 Watch the video demo here:  
+👉 https://drive.google.com/file/d/10i0x49iBxUFRsySnNOhK3J9jrLV8rzyv/view?usp=sharing
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+##  Overview
+**TimeForge** is a sleek and responsive timetable generator designed to help students and professionals plan their schedules efficiently.  
+It offers an interactive UI, smooth animations, and a user-friendly workflow to create and manage daily/weekly timetables effortlessly.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+##  Key Features
+-  Dynamic timetable creation
+-  Clean & modern UI with smooth animations
+-  Fully responsive design
+-  Fast performance using Vite
+-  Modular and scalable component structure
+-  Interactive visualization support (charts/graphs ready)
+-  Theme-friendly and visually appealing layout
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🛠️ Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+| Technology | Purpose |
+|------------|---------|
+|  React + TypeScript | Frontend development |
+|  Vite | Fast build & development |
+|  Tailwind CSS | Styling & responsive design |
+|  Framer Motion | Animations & transitions |
+|  Recharts | Data visualization support |
+|  React Router | Navigation & routing |
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## 📂 Project Structure
+```bash
+TimeForge/
+│── public/ # Static assets
+│── src/
+│ ├── components/ # Reusable UI components
+│ ├── pages/ # App screens/pages
+│ ├── hooks/ # Custom React hooks
+│ ├── utils/ # Helper functions
+│ ├── App.tsx # Main app component
+│ └── main.tsx # Entry point
+│
+├── package.json
+├── vite.config.ts
+└── tailwind.config.js
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## ⚙️ Installation & Setup
+```bash
+# Clone the repository
+git clone https://github.com/your-username/timeforge.git
 
-**Use GitHub Codespaces**
+# Navigate into the project folder
+cd timeforge
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Install dependencies
+npm install
 
-## What technologies are used for this project?
+# Start the development server
+npm run dev
+```
+---
 
-This project is built with:
+##  Usage
+1. Open the app  
+2. Add subjects/tasks  
+3. Assign time slots  
+4. Generate your personalized timetable  
+5. Stay organized and productive!   
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+##  Future Enhancements
+-  Calendar sync integration  
+-  Cloud save & export (PDF/PNG)  
+-  Smart reminders & notifications  
+-  AI-based schedule optimization  
+-  Advanced analytics dashboard
+  
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+##  Why TimeForge?
+Because productivity isn’t about working more…  
+It’s about planning smarter.   
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## TimeForge helps you:  
+- Reduce scheduling conflicts  
+- Visualize your day clearly  
+- Stay consistent with routines
+  
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### 💡 “Forge your time. Shape your future.”
+###  If you like this project, don’t forget to give it a star on GitHub!❤️
