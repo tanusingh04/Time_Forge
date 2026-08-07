@@ -1,0 +1,107 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id               String           @id @default(uuid())
+  email            String           @unique
+  password         String
+  name             String
+  institution      String?
+  course           String?
+  semester         String?
+  studyHoursPerDay Int              @default(6)
+  wakeUpTime       String           @default("06:00")
+  sleepTime        String           @default("22:00")
+  goals            String           @default("[]") // JSON array stored as string (SQLite has no native array)
+  tasks            Task[]
+  savedTimetables  SavedTimetable[]
+  historyRecords   DayRecord[]
+  syllabusFiles    SyllabusFile[]
+  exams            Exam[]
+  collegeTimetable CollegeSlot[]
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+}
+
+model Task {
+  id            String   @id @default(uuid())
+  title         String
+  subject       String
+  duration      Int      // in minutes
+  priority      String   // "high", "medium", "low"
+  completed     Boolean  @default(false)
+  scheduledTime String?
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model CollegeSlot {
+  id         String  @id @default(uuid())
+  day        Int     // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  startTime  String  // "09:00"
+  endTime    String  // "10:30"
+  subject    String
+  roomOrCode String?
+  userId     String
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Exam {
+  id        String  @id @default(uuid())
+  title     String
+  subject   String
+  date      String  // ISO date "YYYY-MM-DD"
+  time      String? // "09:00"
+  notes     String?
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model SyllabusFile {
+  id         String          @id @default(uuid())
+  name       String
+  subject    String?
+  uploadedAt DateTime        @default(now())
+  fileData   Bytes           // Stores PDF contents as binary data
+  modules    SubjectModule[]
+  userId     String
+  user       User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model SubjectModule {
+  id             String       @id @default(uuid())
+  name           String
+  estimatedHours Float?
+  syllabusFileId String
+  syllabusFile   SyllabusFile @relation(fields: [syllabusFileId], references: [id], onDelete: Cascade)
+}
+
+model SavedTimetable {
+  id        String   @id @default(uuid())
+  name      String
+  entries   String   // JSON string of TimetableEntry[] (SQLite has no native Json type)
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model DayRecord {
+  id             String   @id @default(uuid())
+  date           String   // YYYY-MM-DD
+  timetable      String   // JSON string of TimetableEntry[] (SQLite has no native Json type)
+  completionRate Int
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([userId, date])
+}
