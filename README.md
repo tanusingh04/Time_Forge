@@ -1,124 +1,197 @@
-# ⏳ TimeForge – Smart Timetable Generator
+# ⏳ TimeForge – AI-Powered Productivity & Study Management Platform
 
-> Craft, customize, and conquer your schedule with precision ⚡  
-> A modern, intuitive timetable creation web app built for productivity lovers.
+TimeForge is an **AI-powered productivity and study management platform** designed to help students manage tasks, schedules, study plans, and daily productivity workflows in one place.
 
----
-<p align="center">
-  <img src="https://img.shields.io/badge/React-Vite-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TailwindCSS-Styled-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
-  <img src="https://img.shields.io/badge/FramerMotion-Animated-black?style=for-the-badge&logo=framer&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
-</p>
-
----
-
-<p align="center">
-  <b>A modern smart timetable generator with dynamic scheduling, smooth animations, and a sleek productivity-focused UI ⏳⚡</b>
-</p>
-
-##  Live Demo
-🎥 Watch the video demo here:  
-👉 https://drive.google.com/file/d/10i0x49iBxUFRsySnNOhK3J9jrLV8rzyv/view?usp=sharing
-
----
-
-##  Overview
-**TimeForge** is a sleek and responsive timetable generator designed to help students and professionals plan their schedules efficiently.  
-It offers an interactive UI, smooth animations, and a user-friendly workflow to create and manage daily/weekly timetables effortlessly.
-
----
+The platform combines a modern responsive interface with AI-powered assistance to provide **smart recommendations, personalized study support, and contextual guidance** based on the user's academic and productivity needs.
 
 ##  Key Features
--  Dynamic timetable creation
--  Clean & modern UI with smooth animations
--  Fully responsive design
--  Fast performance using Vite
--  Modular and scalable component structure
--  Interactive visualization support (charts/graphs ready)
--  Theme-friendly and visually appealing layout
 
----
+*  **Study Management** – Organize study plans, subjects, exams, assignments, and daily tasks.
+*  **Smart Scheduling** – Create and manage personalized study schedules and timetables.
+*  **AI-Powered Assistance** – Provides smart recommendations and personalized assistance for study and productivity workflows.
+*  **AI Support** – Users can interact with the AI for contextual guidance and study-related assistance.
+*  **Productivity Tracking** – Track tasks, study progress, and completion status through the dashboard.
+*  **JWT Authentication** – Secure user authentication and protected application resources.
+*  **REST APIs** – Backend APIs for communication between the frontend and application services.
+*  **Performance Optimization** – Designed for smooth interaction and efficient application performance.
+*  **Responsive UI** – Modern interface that works across different screen sizes.
+*  **Frontend–Backend Integration** – Smooth communication between the frontend and backend services.
 
-## 🛠️ Tech Stack
+##  AI Integration
 
-| Technology | Purpose |
-|------------|---------|
-|  React + TypeScript | Frontend development |
-|  Vite | Fast build & development |
-|  Tailwind CSS | Styling & responsive design |
-|  Framer Motion | Animations & transitions |
-|  Recharts | Data visualization support |
-|  React Router | Navigation & routing |
+TimeForge uses AI to make study and productivity management more personalized.
 
----
+The AI can work with information such as:
 
-## 📂 Project Structure
-```bash
-TimeForge/
-│── public/ # Static assets
-│── src/
-│ ├── components/ # Reusable UI components
-│ ├── pages/ # App screens/pages
-│ ├── hooks/ # Custom React hooks
-│ ├── utils/ # Helper functions
-│ ├── App.tsx # Main app component
-│ └── main.tsx # Entry point
+* Student study requirements
+* Pending tasks
+* Exam and assignment information
+* Study schedules
+* Academic planning information
+* User-specific productivity needs
+
+Based on this context, the system can provide:
+
+* Personalized study recommendations
+* Contextual assistance
+* Study planning support
+* Revision guidance
+* Productivity suggestions
+
+The project integrates Google's Generative AI capabilities through the `@google/genai` package.
+
+##  Architecture
+
+TimeForge follows a **frontend–backend architecture**.
+
+```text
+                    ┌──────────────────────┐
+                    │       User           │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   React Frontend     │
+                    │                      │
+                    │  UI Components       │
+                    │  Study Management     │
+                    │  Scheduling           │
+                    │  Dashboard            │
+                    └──────────┬───────────┘
+                               │
+                         REST API
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Backend Services   │
+                    │                      │
+                    │ Authentication       │
+                    │ Business Logic       │
+                    │ API Handling         │
+                    └──────────┬───────────┘
+                               │
+                  ┌────────────┴────────────┐
+                  ▼                         ▼
+        ┌──────────────────┐      ┌──────────────────┐
+        │      Redis       │      │    AI Service    │
+        │                  │      │                  │
+        │ Caching /        │      │ AI-powered       │
+        │ Performance      │      │ recommendations  │
+        └──────────────────┘      └──────────────────┘
+```
+
+### Architecture Flow
+
+1. The user interacts with the React frontend.
+2. Frontend requests are sent through REST APIs.
+3. JWT authentication is used to secure protected operations.
+4. Backend services process the application logic.
+5. Redis can be used for performance optimization and fast data access.
+6. AI services process relevant study/productivity context and generate personalized assistance.
+7. The response is returned to the frontend and displayed to the user.
+
+##  Tech Stack
+
+| Technology               | Purpose                                  |
+| ------------------------ | ---------------------------------------- |
+| **Java**                 | Backend development                      |
+| **Spring Boot**          | REST APIs and backend services           |
+| **React**                | Frontend development                     |
+| **TypeScript**           | Type-safe frontend development           |
+| **MySQL**                | Data persistence                         |
+| **Redis**                | Caching and performance optimization     |
+| **JWT**                  | Authentication and authorization         |
+| **REST APIs**            | Frontend-backend communication           |
+| **Grok API**             | AI-powered assistance                    |
+| **Google TTS**           | Text-to-speech functionality             |
+| **Google Generative AI** | AI-powered study/productivity assistance |
+| **Git**                  | Version control                          |
+
+##  Project Structure
+
+```text
+Time_Forge/
+│
+├── public/              # Static assets
+│
+├── src/                 # Frontend source code
+│   ├── components/     # Reusable UI components
+│   ├── context/        # React application context
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utility/library code
+│   ├── pages/          # Application pages
+│   ├── services/       # Service/API related logic
+│   └── test/           # Test files
+│
+├── server/             # Server-side functionality
 │
 ├── package.json
 ├── vite.config.ts
-└── tailwind.config.js
+├── tailwind.config.ts
+└── README.md
 ```
 
----
+The repository currently contains dedicated `src`, `server`, `public`, and configuration directories.
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
+
+### 1. Clone the repository
+
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/timeforge.git
+git clone https://github.com/tanusingh04/Time_Forge.git
+cd Time_Forge
+```
 
-# Navigate into the project folder
-cd timeforge
+### 2. Install dependencies
 
-# Install dependencies
+```bash
 npm install
+```
 
-# Start the development server
+### 3. Configure environment variables
+
+Create a `.env` file and add the required API configuration.
+
+```env
+GOOGLE_API_KEY=your_google_api_key
+```
+
+Add other project-specific credentials required by the backend and AI services.
+
+### 4. Start the development server
+
+```bash
 npm run dev
 ```
----
 
-##  Usage
-1. Open the app  
-2. Add subjects/tasks  
-3. Assign time slots  
-4. Generate your personalized timetable  
-5. Stay organized and productive!   
+The project uses Vite for development and also includes build, lint, and test scripts.
 
----
+##  Use Cases
+
+TimeForge can be used by students to:
+
+* Plan daily and weekly study schedules
+* Organize assignments and exams
+* Track study progress
+* Get personalized study recommendations
+* Manage productivity tasks
+* Receive AI-powered academic assistance
+* Improve consistency in study routines
 
 ##  Future Enhancements
--  Calendar sync integration  
--  Cloud save & export (PDF/PNG)  
--  Smart reminders & notifications  
--  AI-based schedule optimization  
--  Advanced analytics dashboard
-  
+
+* Calendar synchronization
+* Cloud-based data persistence
+* Advanced productivity analytics
+* Smart notifications and reminders
+* More personalized AI recommendations
+* Advanced study-plan optimization
+
+##  Project
+
+**TimeForge – AI-Powered Productivity & Study Management Platform**
+
+Built with a focus on **AI integration, backend APIs, authentication, performance optimization, and a smooth frontend experience**.
+
 ---
 
-##  Why TimeForge?
-Because productivity isn’t about working more…  
-It’s about planning smarter.   
-
----
-
-## TimeForge helps you:  
-- Reduce scheduling conflicts  
-- Visualize your day clearly  
-- Stay consistent with routines
-  
----
-
-### 💡 “Forge your time. Shape your future.”
-###  If you like this project, don’t forget to give it a star on GitHub!❤️
