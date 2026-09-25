@@ -1,0 +1,64 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node dependencies & builds
+node_modules/
+server/node_modules/
+dist/
+dist-ssr/
+server/dist/
+*.local
+
+# Java / Maven builds
+target/
+backend/target/
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Databases & local data
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.mv.db
+*.trace.db
+data/
+backend/data/
+
+# Environment variables & secrets (Hides all API keys & credentials)
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+
+# IDE & Editor files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.iws
+*.iml
+*.ipr
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary / Scratch
+scratch/
