@@ -46,13 +46,13 @@ export const AppProvider = ({ children }) => {
                 return;
             try {
                 const [profileData, tasksData, timetablesData, historyData, syllabusData, examsData, collegeSlotsData] = await Promise.all([
-                    api.get("/user/profile").catch(() => defaultProfile),
+                    api.get("/users/profile").catch(() => defaultProfile),
                     api.get("/tasks").catch(() => []),
-                    api.get("/schedule/timetables").catch(() => []),
+                    api.get("/schedule/saved").catch(() => []),
                     api.get("/schedule/history").catch(() => []),
                     api.get("/syllabus").catch(() => []),
                     api.get("/exams").catch(() => []),
-                    api.get("/schedule/college-slots").catch(() => [])
+                    api.get("/schedule/college").catch(() => [])
                 ]);
                 if (profileData && profileData.email)
                     setProfileState(profileData);
@@ -78,7 +78,7 @@ export const AppProvider = ({ children }) => {
     const setProfile = async (p) => {
         setProfileState(p);
         try {
-            await api.put("/user/profile", p);
+            await api.put("/users/profile", p);
         }
         catch (e) {
             console.error(e);
@@ -115,7 +115,7 @@ export const AppProvider = ({ children }) => {
         if (timetable.length === 0)
             return;
         try {
-            const saved = await api.post("/schedule/timetables", {
+            const saved = await api.post("/schedule/saved", {
                 name: name || `Timetable ${new Date().toLocaleDateString()}`,
                 entries: timetable
             });
@@ -134,7 +134,7 @@ export const AppProvider = ({ children }) => {
     const deleteSavedTimetable = async (id) => {
         setSavedTimetables(savedTimetables.filter((t) => t.id !== id));
         try {
-            await api.delete(`/schedule/timetables/${id}`);
+            await api.delete(`/schedule/saved/${id}`);
         }
         catch (e) {
             console.error(e);
@@ -262,7 +262,7 @@ export const AppProvider = ({ children }) => {
     };
     const addCollegeSlot = async (slot) => {
         try {
-            const newSlot = await api.post("/schedule/college-slots", slot);
+            const newSlot = await api.post("/schedule/college", slot);
             const updated = [...collegeTimetable, newSlot];
             setCollegeTimetableState(updated);
         }
@@ -274,7 +274,7 @@ export const AppProvider = ({ children }) => {
         const updated = collegeTimetable.filter((s) => s.id !== id);
         setCollegeTimetableState(updated);
         try {
-            await api.delete(`/schedule/college-slots/${id}`);
+            await api.delete(`/schedule/college/${id}`);
         }
         catch (e) {
             console.error(e);

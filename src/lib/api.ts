@@ -2,9 +2,10 @@ class ApiClient {
     formatUrl(url) {
         if (url.startsWith("http://") || url.startsWith("https://"))
             return url;
+        const base = import.meta.env.VITE_API_URL || "";
         if (url.startsWith("/api"))
-            return url;
-        return url.startsWith("/") ? `/api${url}` : `/api/${url}`;
+            return `${base}${url}`;
+        return url.startsWith("/") ? `${base}/api${url}` : `${base}/api/${url}`;
     }
     getHeaders() {
         const token = localStorage.getItem("token");
